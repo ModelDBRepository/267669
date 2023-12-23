@@ -1,0 +1,16 @@
+objref menubox2
+
+proc make_panel2() {
+ menubox2 = new VBox()
+ menubox2.intercept(1)
+ xpanel("set input current parameters")
+ xvalue("del","del",1,"set_paraIapp()")
+ xvalue("dur","dur",1,"set_paraIapp()")
+ xvalue("amp","amp",1,"set_paraIapp()")
+ 
+ xpanel()
+ menubox2.intercept(0)
+ menubox2.map()
+}
+
+make_panel2()

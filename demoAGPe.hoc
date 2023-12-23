@@ -1,0 +1,54 @@
+load_file("nrngui.hoc")
+
+gNaF = 0.00305
+gNaP = 0.00039
+gKv2 = 0.00038
+gKv3 = 0.00100
+gKv4f = 0.01000
+gKv4s = 0.00266
+gKCNQ = 0.00076
+gCaH = 0.00042
+gHCN = 0.00002
+gSK = 0.000675
+gleak = 0.000090
+Area = 2087
+
+load_file("celldefAGPe.hoc")
+
+
+del = 0
+dur = 3000
+amp = 0.0
+
+// point processes
+// current injection
+objref stim
+proc set_Iapp() {
+  soma stim = new IClamp(0.5)
+  stim.del = del
+  stim.dur = dur
+  stim.amp = amp*314/Area
+}
+
+set_Iapp()
+
+proc set_paraIapp() {
+  stim.del = del
+  stim.dur = dur
+  stim.amp = amp*314/Area
+}
+
+
+load_file("conductanceAGPe.hoc")
+load_file("input.hoc")
+
+
+
+
+load_file("demoAGPe.ses")
+
+// simulation parameters
+tstop = 3000
+
+
+

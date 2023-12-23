@@ -1,0 +1,54 @@
+load_file("nrngui.hoc")
+
+gNaF = 0.0014
+gNaP = 0.00074
+gKv2 = 0.0
+gKv3 = 0.050
+gKv4f = 0.01000
+gKv4s = 0.0
+gKCNQ = 0.00037
+gCaH = 0.00053
+gHCN = 0.000006
+gSK = 0.000095
+gleak = 0.000037
+Area = 6000
+
+load_file("celldefPGPe.hoc")
+
+
+del = 0
+dur = 3000
+amp = 0.0
+
+// point processes
+// current injection
+objref stim
+proc set_Iapp() {
+  soma stim = new IClamp(0.5)
+  stim.del = del
+  stim.dur = dur
+  stim.amp = amp*314/Area
+}
+
+set_Iapp()
+
+proc set_paraIapp() {
+  stim.del = del
+  stim.dur = dur
+  stim.amp = amp*314/Area
+}
+
+
+load_file("conductancePGPe.hoc")
+load_file("input.hoc")
+
+
+
+
+load_file("demo.ses")
+
+// simulation parameters
+tstop = 3000
+
+
+

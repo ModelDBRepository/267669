@@ -1,0 +1,69 @@
+proc celldef() {
+ geom()
+ biophys()
+}
+
+create soma
+
+proc geom() {
+ soma {
+  L = 10
+  diam = 10
+  nseg = 1
+ }
+}
+
+proc biophys() {
+ soma {
+  Ra = 150
+  //cm = 2.4
+  cm = 1.0
+
+  insert leak
+  gmax_leak = gleak
+  //e_leak = -60
+  e_leak = -65
+
+  insert NaF
+  insert NaP
+  ena = 50
+
+  insert Kv2
+  insert Kv3
+  insert Kv4f
+  insert Kv4s
+  insert KCNQ
+  ek = -90
+
+  insert CaH
+  e_CaH = 130
+  insert CaT
+  e_CaT = 130
+
+  insert HCN
+  e_HCN = -30
+
+  insert SK
+
+  insert Calcium
+ }
+
+ soma {
+  gmax_NaF = gNaF
+  gmax_NaP = gNaP
+  gmax_Kv2 = gKv2
+  gmax_Kv3 = gKv3
+  gmax_Kv4f = gKv4f
+  gmax_Kv4s = gKv4s
+  gmax_KCNQ = gKCNQ
+  gmax_CaH = gCaH
+  gmax_CaT = gCaT
+  gmax_HCN = gHCN
+  gmax_SK = gSK
+  gmax_leak = gleak
+ }
+}
+
+access soma
+
+celldef()

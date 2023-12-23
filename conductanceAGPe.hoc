@@ -1,0 +1,24 @@
+objref menubox
+
+proc make_panel() {
+ menubox = new VBox()
+ menubox.intercept(1)
+ xpanel("set ionic conductance")
+ xvalue("gNaF","gNaF",1,"biophys()")
+ xvalue("gNaP","gNaP",1,"biophys()")
+ xvalue("gKv2","gKv2",1,"biophys()")
+ xvalue("gKv3","gKv3",1,"biophys()")
+ xvalue("gKv4f","gKv4f",1,"biophys()")
+ xvalue("gKv4s","gKv4s",1,"biophys()")
+ xvalue("gKCNQ","gKCNQ",1,"biophys()")
+ xvalue("gCaH","gCaH",1,"biophys()")
+ xvalue("gHCN","gHCN",1,"biophys()")
+ xvalue("gSK","gSK",1,"biophys()")
+ xvalue("gleak","gleak",1,"biophys()")
+ 
+ xpanel()
+ menubox.intercept(0)
+ menubox.map()
+}
+
+make_panel()
